@@ -5,8 +5,36 @@
 
 float bouns(char *name, int *p_overtime, float *p_absent) //returning float as the operation might return float 
 {
+    float Bonus_Paid;
+    float BonusEquation;
     //Bonus Paid= OVERTIME – (2/3)*ABSENT
-    float Bonus_Paid = *p_overtime - ((2.0/3) * (*p_absent)); //returning float as the operation might return float 
+    BonusEquation = *p_overtime - ((2.0/3) * (*p_absent)); //returning float as the operation might return float
+    
+    if (BonusEquation > 40)
+    {
+        Bonus_Paid = 50;
+    }
+    else if(30 < BonusEquation &&  BonusEquation <= 40)
+    {
+        Bonus_Paid = 40;
+        
+    }
+    else if(20 < BonusEquation &&  BonusEquation <= 30)
+    {
+        Bonus_Paid = 30;
+        
+    }
+    else if(10 < BonusEquation &&  BonusEquation <= 20)
+    {
+        Bonus_Paid = 20;
+        
+    }
+    else if(0 <= BonusEquation &&  BonusEquation <= 10)
+    {
+        Bonus_Paid = 10;
+        
+    }
+
     return Bonus_Paid;
 }
 
