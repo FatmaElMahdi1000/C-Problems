@@ -18,7 +18,7 @@ int average(int *p_arr, int size)
 int largest(int *p_arr, int size)
 {
     int largest = p_arr[0];
-    for (int j = 0; j < size; j++)
+    for (int j = 1; j < size; j++)
     {
         if (largest < p_arr[j])
         {
