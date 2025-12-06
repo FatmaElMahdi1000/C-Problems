@@ -35,3 +35,30 @@ int main()
 
     return 0;
 }
+
+// /**Reverse a sentence */
+// #include"stdio.h"
+// #include"string.h"
+// #include "stdlib.h"
+// #define SIZE 100
+
+// int main()
+// {
+//   char string[SIZE] = "Hello World!";
+//   char *word = (char *) malloc(sizeof(char) * SIZE); //dynamic allocation
+
+//   int i = 0;
+//   int length = strlen(string);  
+
+//   while(i < length)
+//   {
+//     word[i] = string[length - 1-i];
+//     i += 1;
+//   }
+//   word[length] = '\0';  // C needs a clear marker to know where the string ends, and that marker is the null terminator
+//   for(int j = 0; j <length; j++)
+//   {
+//     printf("%c", word[j]);
+//   }
+//   printf("\n");
+// }
