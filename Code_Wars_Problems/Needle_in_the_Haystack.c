@@ -8,12 +8,12 @@ char *find_needle(const char *const haystack[], size_t count)
 {
     char *result= (char *) calloc(SIZE, sizeof(char));
 
-    for(int i = 0; i < count; i++)
+    for(size_t i = 0; i < count; i++)
     {
         if(strcmp(haystack[i], "needle") == 0)
         {
             result = "found the needle at position";
-            printf("%s %d", result, i);
+            printf("%s %zu", result, i);
         }
     }
 	return calloc(1, 1);
@@ -25,5 +25,5 @@ int main()
      size_t count = sizeof(haystack) / sizeof(haystack[0]); //size of array/ one element in the array
      char *r = find_needle(haystack,count);
      free(r);
-     r = NULL;
+
 }
