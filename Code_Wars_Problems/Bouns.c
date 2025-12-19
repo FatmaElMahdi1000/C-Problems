@@ -36,6 +36,8 @@ int main()
     bool *bonus = &B_b;
     char *result = bonus_time(salary, bonus);
     printf("%s\n", result);
+    free(result);
+    result = NULL;
 
 }
 
