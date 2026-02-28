@@ -2,6 +2,7 @@
 #include "stdlib.h"
 #include "stdbool.h"
 
+//Note we're storing the 3 book structures on the stack, but title, author, we stored them on the heap.
 typedef struct BookStructure
 {
     char *title;
