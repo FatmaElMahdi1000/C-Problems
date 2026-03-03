@@ -25,7 +25,6 @@ int main()
     printf("Enter the second number: ");
     scanf("%d", &b);
     
-
     int start;
     if(*p_a > *p_b)
     {
