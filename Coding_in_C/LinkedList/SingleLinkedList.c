@@ -172,7 +172,33 @@ void delete_at_beg(node* start)
         free(temp);
     }
 }
+//Deleting node at the END 
+void deleting_at_End(node* start)
+{
+    node* temp;
+    node* prev;//for tracking 
 
+    if(start == NULL)
+    {
+        printf("Empty list, No nodes to delete!");
+    }
+    else
+    {
+        start = temp = prev;
+        while(temp->next != NULL)
+        {
+            prev = temp;
+            temp = temp->next;
+        }
+        //we've reached the null or temp reached the NULL 
+        //no we delete, controlling what prev pointer is pointing at
+        prev->next = NULL;
+        //no  longer needed
+        free(temp); 
+
+    }
+
+}
 
 
 int main()
