@@ -200,6 +200,44 @@ void deleting_at_End(node* start)
 
 }
 
+void deleting_in_Middle(node* start)
+{
+    node* prev;
+    node* temp;
+    int nodectr;
+    int ctr = 1;
+    int pos; //position of the node to be deleted 
+    nodectr = countnode(start);
+    printf("Eneter the node position: ");
+    scanf("%d", &pos);
+    if(start == NULL)
+    {
+        printf("Nothing to delete!");
+
+    }
+    else
+    {
+
+        if(pos <nodectr && pos > 1 )
+        {
+            start = temp = prev;
+            while(ctr < pos)
+            {
+                prev = temp;
+                temp=temp->next;
+                ctr++;
+            }
+            prev->next = temp->next;
+            free(temp);
+            printf("Node deleted\n");
+            
+        }
+    }
+
+
+    
+
+}
 
 int main()
 {
