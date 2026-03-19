@@ -139,6 +139,7 @@ void insert_at_mid(node*start)
     if(pos > 1 && pos< nodectr)
     {
         temp = prev = start;
+        //REVIEW 
         while(ctr < pos)
         {
             prev = temp;
@@ -154,6 +155,24 @@ void insert_at_mid(node*start)
         printf("The position is not a middle position!");
     }
 }
+
+//Deleting node at the beginning
+void delete_at_beg(node* start)
+{
+    node* temp; //this is a pointer to struct temp, it's an address, no data, no values assigned. ONLY address
+    if(start == NULL)
+    {
+        printf("The list is empty to delete nodes!");
+    }
+    else
+    {
+        temp =  start;
+        start = temp->next;
+        //no longer needed; free the memory.
+        free(temp);
+    }
+}
+
 
 
 int main()

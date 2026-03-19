@@ -16,7 +16,7 @@ node* getnode()
 {
     node *newnode = (node*) malloc(sizeof(node));
     printf("Enter the data: ");
-    scanf("%d", &newnode->next);
+    scanf("%d", &newnode->data);
     newnode->next = NULL;
     //return the address of the created node:
     return newnode;
