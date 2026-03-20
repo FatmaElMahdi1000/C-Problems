@@ -63,18 +63,29 @@ void display(node* start)
     node* temp = start;
     while(temp != NULL)
     {
-        printf("+ %2.f", temp->coef);
-        printf("X^ %d", temp->expo);
+        printf("+%2.f", temp->coef);
+        printf("X^%d", temp->expo);
         temp = temp->next;
     }
-
 
 }
 //REMAINING PART: CALLING Func in main
 int main()
 {
+ 
     node* start = NULL;
-    printf("Enter the polynomial: ");
-    
+    int num;
+
+    printf("How many terms in your polynomial? ");
+    scanf("%d", &num);
+
+    printf("Enter the polynomial terms:\n");
+    //REVIEW: Must assign the returned pointer to 'start'
+    start = createnode(start, num);
+
+    printf("\nYour Polynomial: ");
+    display(start);
+
+    return 0;
 
 }
