@@ -15,7 +15,7 @@ node* getnode()
 {
     node* newNode;
     //allocating memory for the node in the heap
-    newNode = (node*) malloc(sizeof(node*));
+    newNode = (node*) malloc(sizeof(node));
     printf("Enter the Node's Data: ");
     scanf("%d", &newNode->data);
     //setting the pointer of the next node to NULL
@@ -28,7 +28,8 @@ node* getnode()
 }
 
 //Creating a Singly Linked List with "n" number of nodes
-void createlist(int n, node *start)
+//Review the part of returning a node, Dr's lectures returning void and it's not ok
+node* createlist(int n, node *start)
 {
     node *newNode;
     //I am moving with temp, it's a seperate entity here,
@@ -53,6 +54,8 @@ void createlist(int n, node *start)
         }
 
     }
+    // CHANGED: Now returns node* so main can update its 'start'
+    return start;
 
 }
 
@@ -108,7 +111,7 @@ void insert_at_end(node* start)
 
 
 
-//Node counter: 
+//Node counter Method#1: 
 //REVIEW 
 int countnode(node *ptr) //we'll pass in start(the linked list head) later 
 {
@@ -119,6 +122,19 @@ int countnode(node *ptr) //we'll pass in start(the linked list head) later
         ptr = ptr->next; //move to the next
     }
     return(count);
+}
+//Node counter Method#2: //RECURSION 
+//REVIEW
+int countnodes2(node* start)//Start here it's a pointer to the staring point
+{
+    if(start == NULL)
+    {
+        return 0;
+    }
+    else
+    {
+        return(1+countnodes2(start->next));
+    }
 }
 
 //REVIEW
@@ -184,7 +200,8 @@ void deleting_at_End(node* start)
     }
     else
     {
-        start = temp = prev;
+        temp = start;
+        prev = start;
         while(temp->next != NULL)
         {
             prev = temp;
@@ -234,8 +251,45 @@ void deleting_in_Middle(node* start)
         }
     }
 
+}
 
-    
+//Review 
+//Traversing a list from left to right.
+void traverse_LR(node* start)
+{
+    node* temp; 
+    temp=start;
+    printf("\n The contents of List(Left to Right): \n");
+    if(start == NULL)
+    {
+        printf("\n Empty List");
+    }
+    //review
+    while(temp != NULL)
+    {
+        printf("%d ->", temp->data);
+        //review
+        temp = temp->next;
+    }
+    printf("X");
+
+}
+//REVIEW 
+//Traverse and displaying left to Right to left
+void traverse_RL(node* start)
+{
+    //Recursion is used here 
+    if(start == NULL)//Base Case 
+    {
+        //recursion func will return the data collected once start == NULL
+        return;
+    }
+    else
+    {
+        traverse_RL(start->next);
+        //this will print the collected data only when Start == NULL
+        printf("%d->", start-> data);
+    }
 
 }
 
@@ -244,4 +298,41 @@ int main()
     //linked list entity, 
     //Null is going to move with us till the end when inserting new nodes, end up marking the end of the list
     node *start = NULL;
+    //choice for what's function to follow using (switch)
+    int choice;
+    int n;
+    while(1) //1 here is like true
+    { 
+        printf("\n--- Linked List Menu ---");
+        printf("\n1. Create List\n2. Display (L to R)\n3. Display (R to L)\n4. Count Nodes\n5. Exit");
+        printf("\nEnter choice: ");
+        scanf("%d", &choice);
+        switch(choice)
+        {
+            case 1:
+                printf("Enter the number of the nodes: ");
+                scanf("%d", &n);
+                //REVIEW start =...? Why?
+                start = createlist(n,start);
+                break;
+            case 2:
+                printf("\n Left to Right: ");
+                traverse_LR(start);
+                break;
+
+            case 3:
+                printf("\n Right to Left: ");
+                traverse_RL(start);
+                break;
+            case 4:
+                printf("\nTotal nodes (Recursive): %d", countnodes2(start));
+                break;
+            case 5:
+                exit(0);
+
+
+        }
+    }
+    return 0;   
+
 }
