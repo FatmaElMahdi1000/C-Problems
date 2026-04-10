@@ -35,7 +35,7 @@ Stack *create_stack(int capacity)
 
     // Allocate memory for the stack elements array
     (*stack).collection = (int*) malloc(sizeof(int) * capacity);
-
+    
     // Check if memory allocation for the array failed
     if ((*stack).collection == NULL)
     {

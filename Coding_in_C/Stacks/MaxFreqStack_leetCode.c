@@ -212,7 +212,6 @@ int main()
     {
         printf("STATUS: Keep Pushing to the stack!\n");
     }
-
     // Free memory
     freqStackFree(obj);
 }
